@@ -1,0 +1,34 @@
+[
+  {
+    "id": 3,
+    "imgSrc": "img/drums.jpg",
+    "imgAlt": "drums",
+    "desc": "A set of super awesome drums, combined with a guitar, they can product more than amazing music!!",
+    "price": 17000.0,
+    "productName": "Drums"
+  },
+  {
+    "id": 4,
+    "imgSrc": "img/flute.jpeg",
+    "imgAlt": "flute",
+    "desc": "A super nice flute combined with some super nice musical notes!!",
+    "price": 210.0,
+    "productName": "Flute"
+  },
+  {
+    "id": 5,
+    "imgSrc": "img/blackguitar.jpeg",
+    "imgAlt": "Black guitar",
+    "desc": "An awesome guitar that will product amazing sound!!",
+    "price": 200.0,
+    "productName": "Black Guitar"
+  },
+  {
+    "id": 6,
+    "imgSrc": "img/saxophone.jpeg",
+    "imgAlt": "Saxophone",
+    "desc": "An great saxophone for a great musician!!",
+    "price": 1000.0,
+    "productName": "Saxophone"
+  }
+]
