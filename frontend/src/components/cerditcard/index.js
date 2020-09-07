@@ -138,6 +138,7 @@ export class CreditCardForm extends React.Component {
             }
             id = token.id;
         }
+
         //Create the request, then send it to the back-end
         let response = await fetch("/users/charge", {
             method: "POST",

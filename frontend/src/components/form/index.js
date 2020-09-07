@@ -62,7 +62,18 @@ export class SignInForm extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        console.log(this.state)
+        fetch("/users/signin", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: this.state.email,
+                password: this.state.password
+            })
+        }).then(resp => resp.json()).
+        then(result => console.log(result))
+
     }
 }
 
@@ -73,10 +84,11 @@ export class RegistrationForm extends React.Component {
 
         this.state = {
             error_message: "",
-            username: "",
+            firstname: "",
+            lastname: "",
             email: "",
             password: "",
-            confirm_assword: "",
+            confirm_password: "",
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -85,7 +97,7 @@ export class RegistrationForm extends React.Component {
 
     render() {
 
-        const { username, email, password, confirm_assword, error_message } = this.state
+        const { firstname, lastname, email, password, confirm_password, error_message } = this.state
 
         let message = null;
         if (error_message.length !== 0) {
@@ -98,8 +110,13 @@ export class RegistrationForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <h5 className="mb-4">Registeration</h5>
                     <div className="form-group">
-                        <label htmlFor="username">User Name:</label>
-                        <input value={username} id="username" name='username' className="form-control" placeholder='John Doe' type='text' onChange={this.handleChange} />
+                        <label htmlFor="firstname">First Name:</label>
+                        <input value={firstname} id="firstname" name='firstname' className="form-control" placeholder='John' type='text' onChange={this.handleChange} />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="lastname">Last Name:</label>
+                        <input value={lastname} id="lastname" name='lastname' className="form-control" placeholder='Doe' type='text' onChange={this.handleChange} />
                     </div>
 
                     <div className="form-group">
@@ -112,7 +129,7 @@ export class RegistrationForm extends React.Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="pass">Confirm password:</label>
-                        <input value={confirm_assword} type="password" name='confirm_password' className="form-control" id="confirm-password" onChange={this.handleChange} />
+                        <input value={confirm_password} type="password" name='confirm_password' className="form-control" id="confirm-password" onChange={this.handleChange} />
                     </div>
                     <div className="form-row text-center">
                         <div className="col-12 mt-2">
@@ -136,6 +153,13 @@ export class RegistrationForm extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        console.log(this.state)
+        fetch("/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(this.state)
+        }).then(resp => resp.json()).
+        then(result => console.log(result))
     }
 }

@@ -13,7 +13,7 @@ class App extends React.Component {
     this.state = {
       user: {
         loggedIn: false,
-        name: ""
+        customerID: ""
       },
       buyModalState: false,
       registrationModalState: false

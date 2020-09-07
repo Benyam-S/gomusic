@@ -79,10 +79,10 @@ func (h *Handler) SignIn(c *gin.Context) {
 		return
 	}
 
-	username := c.PostForm("username")
-	password := c.PostForm("password")
+	customer := models.Customer{}
+	c.ShouldBindJSON(&customer)
 
-	customer, err := h.db.SignInUser(username, password)
+	customer, err := h.db.SignInUser(customer.Email, customer.Password)
 	if err != nil {
 
 		if err.Error() == "invalid password" {

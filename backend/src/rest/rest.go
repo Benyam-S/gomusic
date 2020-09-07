@@ -1,6 +1,9 @@
 package rest
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-contrib/static"
+	"github.com/gin-gonic/gin"
+)
 
 // RunAPI is a function that starts the rest api's
 func RunAPI(address string) error {
@@ -18,6 +21,9 @@ func RunAPIWithHandler(addres string, h HandlerInterface) error {
 
 	r := gin.Default()
 
+	r.Use(static.ServeRoot("/", "../../frontend/build"))
+
+	r.GET("/")
 	r.GET("/products", h.GetProducts)
 	r.GET("/promos", h.GetPromos)
 
